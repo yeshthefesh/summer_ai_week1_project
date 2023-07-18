@@ -45,6 +45,7 @@ class Person:
         self.year = age
         self.friendlist = []
         self.messages = []
+        self.blocked = []
 
     def add_friend(self,network):
         print("List of users:")
@@ -68,3 +69,12 @@ class Person:
         message = input("What is your message?\n")
         self.friendlist[int(chosen)-1].messages.append(current_account.id+": "+message)
         print("You have sent a message to",self.friendlist[int(chosen)-1].id)
+
+    def block(self,network):
+        print("List of people:")
+        for i,person in enumerate(network.list_of_people):
+            print(i+1,person.id)
+        account = input("Who would you like to block?")
+        self.blocked.append(network.list_of_people[int(account)-1])
+        self.friendlist.remove(network.list_of_people[int(account)-1])
+        print("You have blocked",network.list_of_people[int(account)-1].id)
