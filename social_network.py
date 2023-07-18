@@ -25,7 +25,7 @@ if __name__ == "__main__":
             inner_menu_choice = social_network_ui.manageAccountMenu()
             #Handle inner menu here
             while True:
-                if inner_menu_choice == "6":
+                if inner_menu_choice == "7":
                     break
                 else:
                     inner_menu_choice = social_network_ui.manageAccountMenu()
@@ -62,6 +62,8 @@ if __name__ == "__main__":
                         print("Your messages:")
                         for message in current_account.messages:
                             print(message)
+                    elif inner_menu_choice == "6":
+                        current_account.block(ai_social_network)
 
         elif choice == "3":
             current_account = ai_social_network.access_account()
